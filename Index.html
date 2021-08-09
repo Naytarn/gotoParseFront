@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v4.js">
+            // здесь мы задаём ширину, высоту
+            var margin = {top: 10, right: 30, bottom: 30, left: 40}
+            var width = 400 - margin.left - margin.right
+            var height = 400 - margin.top - margin.bottom
+
+            // мы создаём svg - формат векторной графики
+            var svg = d3.select("#graph")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            d3.json("x", function(data) {})
+            var link = svg
+            .selectAll("line")
+            .data(data.links)
+            .enter()
+            .append("line")
+            .style("stroke", "#aaa")
+
+            var node = svg
+            .selectAll("circle")
+            .data(data.nodes)
+            .enter()
+            .append("circle")
+            .attr("r", 20)
+            .style("fill", "#69b3a2")
+            
+        </script>
+    </head>
+    <body>
+        <div id="graph"></div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+<body>
+  <div class="controls">  
+    <div class="force">
+      <label title="Negative strength repels nodes. Positive strength attracts nodes.">
+        strength
+        <output id="charge_StrengthSliderOutput">-30</output>
+        <input type="range" min="-200" max="50" value="-30" step=".1" oninput="d3.select('#charge_StrengthSliderOutput').text(value); forceProperties.charge.strength=value; updateAll();">
+      </label>
+      <label title="Minimum distance where force is applied">
+        distanceMin
+        <output id="charge_distanceMinSliderOutput">1</output>
+        <input type="range" min="0" max="50" value="1" step=".1" oninput="d3.select('#charge_distanceMinSliderOutput').text(value); forceProperties.charge.distanceMin=value; updateAll();">
+      </label>
+      <label title="Maximum distance where force is applied">
+        distanceMax
+        <output id="charge_distanceMaxSliderOutput">2000</output>
+        <input type="range" min="0" max="2000" value="2000" step=".1" oninput="d3.select('#charge_distanceMaxSliderOutput').text(value); forceProperties.charge.distanceMax=value; updateAll();">
+      </label>
+    </div>
+    </div>
+<div text-align='center'>
+  <svg align='center'></svg>
+</div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="code.js"></script>
+</body>
+</html> 
